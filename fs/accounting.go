@@ -203,7 +203,7 @@ Elapsed time:  %10v
 
 // Log outputs the StatsInfo to the log
 func (s *StatsInfo) Log() {
-	Infof(nil, "%v\n", s)
+	Logf(nil, "%v\n", s)
 }
 
 // Bytes updates the stats for bytes bytes
