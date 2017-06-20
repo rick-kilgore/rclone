@@ -609,10 +609,10 @@ func (o *Object) Storable() bool {
 		mode &^= os.ModeSymlink
 	}
 	if mode&os.ModeSymlink != 0 {
-		fs.Logf(o, "Can't follow symlink without -L/--copy-links")
+		fs.Infof(o, "Can't follow symlink without -L/--copy-links")
 		return false
 	} else if mode&(os.ModeNamedPipe|os.ModeSocket|os.ModeDevice) != 0 {
-		fs.Logf(o, "Can't transfer non file/directory")
+		fs.Infof(o, "Can't transfer non file/directory")
 		return false
 	} else if mode&os.ModeDir != 0 {
 		// fs.Debugf(o, "Skipping directory")

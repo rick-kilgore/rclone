@@ -268,6 +268,7 @@ var _ MimeTyper = (*overrideRemoteObject)(nil)
 // Copy src object to dst or f if nil.  If dst is nil then it uses
 // remote as the name of the new object.
 func Copy(f Fs, dst Object, remote string, src Object) (err error) {
+	fmt.Println(src)
 	if Config.DryRun {
 		Logf(src, "Not copying as --dry-run")
 		return nil
@@ -439,6 +440,7 @@ func CanServerSideMove(fdst Fs) bool {
 // If backupDir is set then it moves the file to there instead of
 // deleting
 func deleteFileWithBackupDir(dst Object, backupDir Fs) (err error) {
+	fmt.Printf("delete %s\n", dst)
 	Stats.Checking(dst.Remote())
 	action, actioned, actioning := "delete", "Deleted", "deleting"
 	if backupDir != nil {
